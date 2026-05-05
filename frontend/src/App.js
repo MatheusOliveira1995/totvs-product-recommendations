@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import ProductPreferencesForm from './components/ProductPreferencesForm/ProductPreferencesForm';
 import RecommendationList from './components/RecommendationList/RecommendationList';
 import useProducts from './hooks/useProducts';
+import useRecommendations from './hooks/useRecommendations';
 
 function App() {
-  const [recommendations, setRecommendations] = useState([]);
-  const { preferences = [], features = [], products } = useProducts();
+  const [filteredRecommendations, setFilteredRecommendations] = useState([]);
+  const { preferences = [], features = [], products = [] } = useProducts();
+  const { getRecommendations } = useRecommendations(products);
 
   const handleSubmit = (values) => {
-    console.log(values);
+    const recommendations = getRecommendations(values);
+    setFilteredRecommendations(recommendations);
   };
 
-  /**
-   * Dadas atualizações no formulário, necessário atualizar a lista de recomendações
-   */
+  console.log('Filtered Recommendations:', filteredRecommendations);
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
@@ -41,7 +42,7 @@ function App() {
           />
         </div>
         <div>
-          <RecommendationList recommendations={recommendations} />
+          <RecommendationList recommendations={filteredRecommendations} />
         </div>
       </div>
     </div>
