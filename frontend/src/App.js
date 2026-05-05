@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import Form from './components/Form/Form';
+import ProductPreferencesForm from './components/ProductPreferencesForm/ProductPreferencesForm';
 import RecommendationList from './components/RecommendationList/RecommendationList';
+import useProducts from './hooks/useProducts';
 
 function App() {
   const [recommendations, setRecommendations] = useState([]);
+  const { preferences = [], features = [], products } = useProducts();
+
+  const handleSubmit = (values) => {
+    console.log(values);
+  };
 
   /**
    * Dadas atualizações no formulário, necessário atualizar a lista de recomendações
@@ -28,7 +34,11 @@ function App() {
           </p>
         </div>
         <div>
-          <Form />
+          <ProductPreferencesForm
+            preferences={preferences}
+            features={features}
+            onSubmit={handleSubmit}
+          />
         </div>
         <div>
           <RecommendationList recommendations={recommendations} />

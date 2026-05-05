@@ -10,6 +10,7 @@ const useProducts = () => {
     const fetchData = async () => {
       try {
         const products = await getProducts();
+
         const allPreferences = [];
         const allFeatures = [];
 
