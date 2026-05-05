@@ -71,4 +71,90 @@ describe('recommendationService', () => {
     expect(recommendations).toHaveLength(1);
     expect(recommendations[0].name).toBe('RD Conversas');
   });
+
+  test('Retorna [] quando não há produtos', () => {
+    const formData = {
+      selectedPreferences: ['Integração com chatbots'],
+      selectedFeatures: [],
+      selectedRecommendationType: 'SingleProduct',
+    };
+
+    const recommendations = getRecommendations(formData, []);
+
+    expect(recommendations).toEqual([]);
+  });
+
+  test('Retorna [] quando não há seleções', () => {
+    const formData = {
+      selectedPreferences: [],
+      selectedFeatures: [],
+      selectedRecommendationType: 'SingleProduct',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toEqual([]);
+  });
+
+  test('Retorna [] para SingleProduct quando nenhum produto corresponde', () => {
+    const formData = {
+      selectedPreferences: ['Preferência inexistente'],
+      selectedFeatures: [],
+      selectedRecommendationType: 'SingleProduct',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toEqual([]);
+  });
+
+  test('Retorna [] para MultipleProducts quando nenhum produto corresponde', () => {
+    const formData = {
+      selectedPreferences: ['Preferência inexistente'],
+      selectedFeatures: [],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toEqual([]);
+  });
+
+  test('Retorna recomendações apenas com preferências (sem funcionalidades)', () => {
+    const formData = {
+      selectedPreferences: ['Integração com chatbots'],
+      selectedFeatures: [],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toHaveLength(1);
+    expect(recommendations[0].name).toBe('RD Conversas');
+  });
+
+  test('Retorna recomendações apenas com funcionalidades (sem preferências)', () => {
+    const formData = {
+      selectedPreferences: [],
+      selectedFeatures: ['Chat ao vivo e mensagens automatizadas'],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toHaveLength(1);
+    expect(recommendations[0].name).toBe('RD Conversas');
+  });
+
+  test('Retorna [] para tipo de recomendação inválido', () => {
+    const formData = {
+      selectedPreferences: ['Integração com chatbots'],
+      selectedFeatures: [],
+      selectedRecommendationType: 'InvalidType',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toEqual([]);
+  });
 });
