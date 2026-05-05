@@ -1,14 +1,15 @@
 // Preferences.js
 
 import React, { useState } from 'react';
-import Checkbox from '../../shared/Checkbox';
+import { Checkbox } from '../../shared';
 
 function Preferences({
   preferences,
   selectedPreferences = [],
   onPreferenceChange,
 }) {
-  const [currentPreferences, setCurrentPreferences] = useState(selectedPreferences)
+  const [currentPreferences, setCurrentPreferences] =
+    useState(selectedPreferences);
 
   const handlePreferenceChange = (preference) => {
     const updatedPreferences = currentPreferences.includes(preference)
