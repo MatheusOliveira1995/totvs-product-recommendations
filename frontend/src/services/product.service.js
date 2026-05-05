@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseURL = 'http://localhost:3001';
 
-const getProducts = async () => {
+export const getProducts = async () => {
   try {
     const response = await axios.get(`${baseURL}/products`);
     return response.data;
@@ -11,5 +11,3 @@ const getProducts = async () => {
     throw error;
   }
 };
-
-export default getProducts;

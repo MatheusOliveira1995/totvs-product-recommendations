@@ -1,6 +1,6 @@
 // getRecommendations.js
 
-const getRecommendations = (
+export const getRecommendations = (
   formData = {
     selectedPreferences: [],
     selectedFeatures: [],
@@ -21,5 +21,3 @@ const getRecommendations = (
 
   return matchedProducts ?? [];
 };
-
-export default { getRecommendations };
