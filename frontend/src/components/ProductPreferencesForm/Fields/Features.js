@@ -27,7 +27,6 @@ export const Features = ({
               value={feature}
               checked={currentFeatures.includes(feature)}
               onChange={() => handleFeatureChange(feature)}
-              className="text-green-500"
             >
               {feature}
             </Checkbox>

@@ -30,7 +30,6 @@ export const Preferences = ({
               value={preference}
               checked={currentPreferences.includes(preference)}
               onChange={() => handlePreferenceChange(preference)}
-              className="text-blue-500"
             >
               {preference}
             </Checkbox>

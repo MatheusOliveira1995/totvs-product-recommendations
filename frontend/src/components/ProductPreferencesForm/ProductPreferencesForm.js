@@ -4,6 +4,7 @@ import React from 'react';
 import { Preferences, Features, RecommendationType } from './Fields';
 import { SubmitButton } from './SubmitButton';
 import { useForm } from '../../hooks';
+import { Card } from '../shared';
 
 export const ProductPreferencesForm = (props) => {
   const { onSubmit, preferences, features } = props;
@@ -20,28 +21,27 @@ export const ProductPreferencesForm = (props) => {
   };
 
   return (
-    <form
-      className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md"
-      onSubmit={handleSubmit}
-    >
-      <Preferences
-        preferences={preferences}
-        onPreferenceChange={(selected) =>
-          handleChange('selectedPreferences', selected)
-        }
-      />
-      <Features
-        features={features}
-        onFeatureChange={(selected) =>
-          handleChange('selectedFeatures', selected)
-        }
-      />
-      <RecommendationType
-        onRecommendationTypeChange={(selected) =>
-          handleChange('selectedRecommendationType', selected)
-        }
-      />
-      <SubmitButton text="Obter recomendação" />
+    <form onSubmit={handleSubmit}>
+      <Card>
+        <Preferences
+          preferences={preferences}
+          onPreferenceChange={(selected) =>
+            handleChange('selectedPreferences', selected)
+          }
+        />
+        <Features
+          features={features}
+          onFeatureChange={(selected) =>
+            handleChange('selectedFeatures', selected)
+          }
+        />
+        <RecommendationType
+          onRecommendationTypeChange={(selected) =>
+            handleChange('selectedRecommendationType', selected)
+          }
+        />
+        <SubmitButton text="Obter recomendação" />
+      </Card>
     </form>
   );
 };

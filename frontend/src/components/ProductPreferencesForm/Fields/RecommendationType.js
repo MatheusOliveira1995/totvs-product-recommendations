@@ -11,8 +11,8 @@ export const RecommendationType = ({ onRecommendationTypeChange }) => {
           type="radio"
           name="recommendationType"
           value={SINGLE_PRODUCT}
+          required
           onChange={() => onRecommendationTypeChange(SINGLE_PRODUCT)}
-          className="mr-2"
         />
         <label htmlFor="SingleProduct" className="mr-4">
           Produto Único
@@ -21,8 +21,8 @@ export const RecommendationType = ({ onRecommendationTypeChange }) => {
           type="radio"
           name="recommendationType"
           value={MULTIPLE_PRODUCTS}
+          required
           onChange={() => onRecommendationTypeChange(MULTIPLE_PRODUCTS)}
-          className="mr-2"
         />
         <label htmlFor="MultipleProducts">Múltiplos Produtos</label>
       </div>
