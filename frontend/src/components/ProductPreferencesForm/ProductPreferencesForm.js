@@ -22,7 +22,7 @@ export const ProductPreferencesForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card>
+      <div className="max-w-md mx-auto p-4 rounded-lg border-solid border-2 border-gray-100 bg-white">
         <Preferences
           preferences={preferences}
           onPreferenceChange={(selected) =>
@@ -41,7 +41,7 @@ export const ProductPreferencesForm = (props) => {
           }
         />
         <SubmitButton text="Obter recomendação" />
-      </Card>
+      </div>
     </form>
   );
 };
