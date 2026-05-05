@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { getRecommendations as getRecommendationsService } from '../services';
 
-function useRecommendations(products) {
+export const useRecommendations = (products) => {
   const [recommendations, setRecommendations] = useState([]);
 
   const getRecommendations = (formData) => {
@@ -11,6 +11,4 @@ function useRecommendations(products) {
   };
 
   return { recommendations, getRecommendations, setRecommendations };
-}
-
-export default useRecommendations;
+};

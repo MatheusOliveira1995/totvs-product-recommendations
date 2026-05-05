@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getProducts } from '../services';
 
-const useProducts = () => {
+export const useProducts = () => {
   const [preferences, setPreferences] = useState([]);
   const [features, setFeatures] = useState([]);
   const [products, setProducts] = useState([]);
@@ -40,5 +40,3 @@ const useProducts = () => {
 
   return { preferences, features, products };
 };
-
-export default useProducts;

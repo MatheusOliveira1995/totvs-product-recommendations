@@ -3,7 +3,7 @@
 import React from 'react';
 import { Preferences, Features, RecommendationType } from './Fields';
 import { SubmitButton } from './SubmitButton';
-import useForm from '../../hooks/useForm';
+import { useForm } from '../../hooks';
 
 export const ProductPreferencesForm = (props) => {
   const { onSubmit, preferences, features } = props;
