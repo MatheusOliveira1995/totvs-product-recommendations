@@ -1,2 +1,2 @@
-export { default as Checkbox } from './Checkbox';
-export { default as Chip } from './Chip';
+export * from './Checkbox';
+export * from './Chip';

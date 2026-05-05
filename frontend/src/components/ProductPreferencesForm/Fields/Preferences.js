@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { Checkbox } from '../../shared';
 
-function Preferences({
+export const Preferences = ({
   preferences,
   selectedPreferences = [],
   onPreferenceChange,
-}) {
+}) => {
   const [currentPreferences, setCurrentPreferences] =
     useState(selectedPreferences);
 
@@ -39,6 +39,4 @@ function Preferences({
       </ul>
     </div>
   );
-}
-
-export default Preferences;
+};

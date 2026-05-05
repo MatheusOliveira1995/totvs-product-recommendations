@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ProductPreferencesForm from './components/ProductPreferencesForm/ProductPreferencesForm';
-import RecommendationList from './components/RecommendationList/RecommendationList';
+import { ProductPreferencesForm } from './components/ProductPreferencesForm';
+import { RecommendationList } from './components/RecommendationList';
 import useProducts from './hooks/useProducts';
 import useRecommendations from './hooks/useRecommendations';
 

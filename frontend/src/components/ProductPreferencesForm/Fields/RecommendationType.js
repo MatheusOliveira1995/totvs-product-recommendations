@@ -1,7 +1,7 @@
 import React from 'react';
-import Checkbox from '../../shared/Checkbox';
+import { Checkbox } from '../../shared';
 
-function RecommendationType({ onRecommendationTypeChange }) {
+export const RecommendationType = ({ onRecommendationTypeChange }) => {
   return (
     <div className="mb-4">
       <h2 className="text-lg font-bold mb-2">Tipo de Recomendação:</h2>
@@ -13,7 +13,9 @@ function RecommendationType({ onRecommendationTypeChange }) {
           onChange={() => onRecommendationTypeChange('SingleProduct')}
           className="mr-2"
         />
-        <label htmlFor="SingleProduct" className="mr-4">Produto Único</label>
+        <label htmlFor="SingleProduct" className="mr-4">
+          Produto Único
+        </label>
         <Checkbox
           type="radio"
           name="recommendationType"
@@ -25,6 +27,4 @@ function RecommendationType({ onRecommendationTypeChange }) {
       </div>
     </div>
   );
-}
-
-export default RecommendationType;
+};

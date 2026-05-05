@@ -1,4 +1,4 @@
-function Chip(props) {
+export const Chip = (props) => {
   const { label } = props;
 
   return (
@@ -6,6 +6,4 @@ function Chip(props) {
       {label}
     </span>
   );
-}
-
-export default Chip;
+};

@@ -5,7 +5,7 @@ import { Preferences, Features, RecommendationType } from './Fields';
 import { SubmitButton } from './SubmitButton';
 import useForm from '../../hooks/useForm';
 
-function ProductPreferencesForm(props) {
+export const ProductPreferencesForm = (props) => {
   const { onSubmit, preferences, features } = props;
 
   const { formData, handleChange } = useForm({
@@ -44,6 +44,4 @@ function ProductPreferencesForm(props) {
       <SubmitButton text="Obter recomendação" />
     </form>
   );
-}
-
-export default ProductPreferencesForm;
+};

@@ -1,6 +1,6 @@
 import { Chip } from '../shared';
 
-function ListItem(props) {
+export const ListItem = (props) => {
   const { item } = props;
 
   return (
@@ -33,6 +33,4 @@ function ListItem(props) {
       </div>
     </div>
   );
-}
-
-export default ListItem;
+};

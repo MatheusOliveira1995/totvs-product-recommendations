@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Checkbox({ children, ...props }) {
+export const Checkbox = ({ children, ...props }) => {
   return (
     <label className="flex items-center">
       <input
@@ -11,6 +11,4 @@ function Checkbox({ children, ...props }) {
       <span className="ml-2">{children}</span>
     </label>
   );
-}
-
-export default Checkbox;
+};

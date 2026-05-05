@@ -1,7 +1,7 @@
 import React from 'react';
-import ListItem from './ListItem';
+import { ListItem } from './ListItem';
 
-function RecommendationList({ recommendations }) {
+export const RecommendationList = ({ recommendations }) => {
   return (
     <div>
       <h2 className="text-lg font-bold mb-4">Lista de Recomendações:</h2>
@@ -15,6 +15,6 @@ function RecommendationList({ recommendations }) {
       </ul>
     </div>
   );
-}
+};
 
 export default RecommendationList;

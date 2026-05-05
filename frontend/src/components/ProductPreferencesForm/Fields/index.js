@@ -1,5 +1,3 @@
-import Preferences from './Preferences';
-import RecommendationType from './RecommendationType';
-import Features from './Features';
-
-export { Preferences, RecommendationType, Features };
+export * from './Preferences';
+export * from './Features';
+export * from './RecommendationType';
