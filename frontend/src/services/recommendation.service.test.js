@@ -157,4 +157,25 @@ describe('recommendationService', () => {
 
     expect(recommendations).toEqual([]);
   });
+
+  test('Retorna o produto que atende exatamente a todas as preferências e funcionalidades para SingleProduct', () => {
+    const formData = {
+      selectedPreferences: [
+        'Integração fácil com ferramentas de e-mail',
+        'Personalização de funis de vendas',
+        'Relatórios avançados de desempenho de vendas',
+      ],
+      selectedFeatures: [
+        'Gestão de leads e oportunidades',
+        'Automação de fluxos de trabalho de vendas',
+        'Rastreamento de interações com clientes',
+      ],
+      selectedRecommendationType: 'SingleProduct',
+    };
+
+    const recommendations = getRecommendations(formData, mockProducts);
+
+    expect(recommendations).toHaveLength(1);
+    expect(recommendations[0].name).toBe('RD Station CRM');
+  });
 });
