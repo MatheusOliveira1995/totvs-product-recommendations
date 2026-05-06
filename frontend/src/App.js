@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ProductPreferencesForm } from './components/ProductPreferencesForm';
 import { RecommendationList } from './components/RecommendationList';
 import { useProducts, useRecommendations } from './hooks';
 
 function App() {
-  const [filteredRecommendations, setFilteredRecommendations] = useState([]);
   const { preferences = [], features = [], products = [] } = useProducts();
-  const { getRecommendations } = useRecommendations(products);
+  const { getRecommendations, setRecommendations, recommendations } =
+    useRecommendations(products);
 
   const handleSubmit = (values) => {
     const recommendations = getRecommendations(values);
-    setFilteredRecommendations(recommendations);
+    setRecommendations(recommendations);
   };
 
   return (
@@ -39,7 +39,7 @@ function App() {
           />
         </div>
         <div>
-          <RecommendationList recommendations={filteredRecommendations} />
+          <RecommendationList recommendations={recommendations} />
         </div>
       </div>
     </div>
